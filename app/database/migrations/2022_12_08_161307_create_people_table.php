@@ -12,14 +12,13 @@ return new class extends Migration
     {
         
         Schema::create('people', function (Blueprint $table) {
-            $faker = Faker\Factory::create();
             $table->increments('id');
-            $table->string($faker->firstName());
-            $table->string($faker->lastName());
-            $table->unsignedInteger($faker->phoneNumber());
-            $table->string($faker->streetAddress());
-            $table->string($faker->city());
-            $table->string($faker->country());
+            $table->string('name');
+            $table->string('surname');
+            $table->char('phone_num', 12);
+            $table->string('street');
+            $table->string('city');
+            $table->string('country');
             $table->timestamps();
         });
     }
