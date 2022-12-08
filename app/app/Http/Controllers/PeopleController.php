@@ -8,18 +8,15 @@ use App\Models\People;
 
 class PeopleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(): JsonResponse
     {
         return response()->json(People::all(), 200);
     }
 
-    public function create(People $people): JsonResponse
+    public function create(PeoplePostRequest $request): JsonResponse
     {
+        $people = People::create($request->all());
         return response()->json($people, 201);
     }
 
@@ -28,13 +25,15 @@ class PeopleController extends Controller
         return response()->json($people, 200);
     }
 
-    public function update(People $request, $people): JsonResponse
+    public function update(PeoplePostRequest $request, People $people): JsonResponse
     {
+        $people->update($request->all());
         return response()->json($people, 200);
     }
 
     public function destroy(People $people): JsonResponse
     {
-        return response()->json($people, 200);
+        $people->delete();
+        return response()->json(null, 204);
     }
 }
