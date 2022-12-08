@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
-            $table->string('phone_num', 12);
+            $table->string('phone_num');
             $table->string('street');
             $table->string('city');
             $table->string('country');
