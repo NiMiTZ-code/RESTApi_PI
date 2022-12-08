@@ -20,7 +20,7 @@ class PeopleSeeder extends Seeder
             People::create([
                 'name' => $faker->firstName(),
                 'surname' => $faker->lastName(),
-                'phone_num' => $faker->phoneNumber(),
+                'phone_num' => $faker->e164PhoneNumber() ,
                 'street' => $faker->streetAddress(),
                 'city' => $faker->city(),
                 'country' => $faker->country(),
